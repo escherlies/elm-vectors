@@ -1,10 +1,11 @@
 module Math.Vector2 exposing
-    ( vec2
+    ( Vec(..), vec2
     , getX, getY, setX, setY
-    , add, sub, negate, scale, dot, normalize, direction
+    , add, sub, negate, scale, divBy, dot, mul, normalize, direction
     , length, lengthSquared, distance, distanceSquared
+    , mapX, mapY, map
     , toRecord, fromRecord
-    , Vec(..), ceiling, divBy, floor, map, mapY, mul, round, toFloat, truncate
+    , toFloat, round, floor, ceiling, truncate
     )
 
 {-| A high performance linear algebra library using native Elm ADT.
@@ -12,7 +13,7 @@ module Math.Vector2 exposing
 
 # Create
 
-@docs Vec2 number, vec2
+@docs Vec, vec2
 
 
 # Get and Set
@@ -24,13 +25,19 @@ The set functions create a new copy of the vector, updating a single field.
 
 # Operations
 
-@docs add, sub, negate, scale, dot, normalize, direction
+@docs add, sub, negate, scale, divBy, dot, mul, normalize, direction
 @docs length, lengthSquared, distance, distanceSquared
+
+
+# Transform
+
+@docs mapX, mapY, map
 
 
 # Conversions
 
 @docs toRecord, fromRecord
+@docs toFloat, round, floor, ceiling, truncate
 
 -}
 

@@ -1,9 +1,11 @@
 module Math.Vector3 exposing
-    ( getX, getY, setX, setY
-    , add, sub, negate, scale, dot, normalize, direction
+    ( Vec(..), vec3
+    , getX, getY, getZ, setX, setY, setZ
+    , add, sub, negate, scale, divBy, dot, mul, normalize, direction
     , length, lengthSquared, distance, distanceSquared
+    , mapX, mapY, mapZ, map
     , toRecord, fromRecord
-    , Vec(..), ceiling, divBy, floor, getZ, map, mapY, mapZ, mul, round, setZ, toFloat, truncate, vec3
+    , toFloat, round, floor, ceiling, truncate
     )
 
 {-| A high performance linear algebra library using native Elm ADT.
@@ -11,25 +13,31 @@ module Math.Vector3 exposing
 
 # Create
 
-@docs Vec2 number, vec2
+@docs Vec, vec3
 
 
 # Get and Set
 
 The set functions create a new copy of the vector, updating a single field.
 
-@docs getX, getY, setX, setY
+@docs getX, getY, getZ, setX, setY, setZ
 
 
 # Operations
 
-@docs add, sub, negate, scale, dot, normalize, direction
+@docs add, sub, negate, scale, divBy, dot, mul, normalize, direction
 @docs length, lengthSquared, distance, distanceSquared
+
+
+# Transform
+
+@docs mapX, mapY, mapZ, map
 
 
 # Conversions
 
 @docs toRecord, fromRecord
+@docs toFloat, round, floor, ceiling, truncate
 
 -}
 
