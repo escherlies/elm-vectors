@@ -87,6 +87,7 @@ equalFloat =
     Expect.within (Expect.Absolute 1.0e-12)
 
 
+fuzzVec : Fuzz.Fuzzer c -> Fuzz.Fuzzer c -> Fuzz.Fuzzer c -> Fuzz.Fuzzer { g : { x : c, y : c, z : c }, a : Math.Vector3.Vec c }
 fuzzVec =
     Fuzz.map3
         (\x y z ->
@@ -96,6 +97,7 @@ fuzzVec =
         )
 
 
+fuzzVecInt : Fuzz.Fuzzer { g : { x : Int, y : Int, z : Int }, a : Math.Vector3.Vec Int }
 fuzzVecInt =
     fuzzVec
         Fuzz.int
@@ -103,6 +105,7 @@ fuzzVecInt =
         Fuzz.int
 
 
+fuzzVecFloat : Fuzz.Fuzzer { g : { x : Float, y : Float, z : Float }, a : Math.Vector3.Vec Float }
 fuzzVecFloat =
     fuzzVec
         Fuzz.niceFloat
