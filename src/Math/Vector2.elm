@@ -41,8 +41,6 @@ The set functions create a new copy of the vector, updating a single field.
 
 -}
 
-import Utils.Utils exposing (b1)
-
 
 {-| Two dimensional vector type
 -}
@@ -148,15 +146,15 @@ lengthSquared (Vec x y) =
 {-| The distance between two vectors.
 -}
 distance : Vec Float -> Vec Float -> Float
-distance =
-    b1 length sub
+distance a b =
+    length (sub a b)
 
 
 {-| The square of the distance between two vectors.
 -}
 distanceSquared : Vec number -> Vec number -> number
-distanceSquared =
-    b1 lengthSquared sub
+distanceSquared a b =
+    lengthSquared (sub a b)
 
 
 {-| A unit vector with the same direction as the given vector: a / |a|
