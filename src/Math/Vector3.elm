@@ -41,7 +41,7 @@ The set functions create a new copy of the vector, updating a single field.
 
 -}
 
-import Utils exposing (b1)
+import Utils.Utils exposing (b1)
 
 
 {-| Three dimensional vector type

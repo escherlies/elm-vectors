@@ -1,4 +1,4 @@
-module Readme exposing (..)
+module Utils.Readme exposing (..)
 
 {- # elm-vectors
 
