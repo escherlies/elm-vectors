@@ -81,22 +81,22 @@ getZ (Vec _ _ z) =
 {-| Update the x component of a vector, returning a new vector.
 -}
 setX : a -> Vec a -> Vec a
-setX =
-    mapX << always
+setX x (Vec _ y z) =
+    Vec x y z
 
 
 {-| Update the y component of a vector, returning a new vector.
 -}
 setY : a -> Vec a -> Vec a
-setY =
-    mapY << always
+setY y (Vec x _ z) =
+    Vec x y z
 
 
 {-| Update the z component of a vector, returning a new vector.
 -}
 setZ : a -> Vec a -> Vec a
-setZ =
-    mapZ << always
+setZ z (Vec x y _) =
+    Vec x y z
 
 
 {-| Convert a vector to a record.
@@ -148,7 +148,7 @@ direction a b =
         ab =
             sub a b
     in
-    scale (1 / length ab) ab
+    divBy (length ab) ab
 
 
 {-| The length of the given vector: |a|

@@ -74,15 +74,15 @@ getY (Vec _ y) =
 {-| Update the x component of a vector, returning a new vector.
 -}
 setX : a -> Vec a -> Vec a
-setX =
-    mapX << always
+setX x (Vec _ y) =
+    Vec x y
 
 
 {-| Update the y component of a vector, returning a new vector.
 -}
 setY : a -> Vec a -> Vec a
-setY =
-    mapY << always
+setY y (Vec x _) =
+    Vec x y
 
 
 {-| Convert a vector to a record.
@@ -128,7 +128,7 @@ direction a b =
         ab =
             sub a b
     in
-    scale (1 / length ab) ab
+    divBy (length ab) ab
 
 
 {-| The length of the given vector: |a|
