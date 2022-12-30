@@ -4,6 +4,7 @@ module Math.Vector2 exposing
     , add, sub, negate, scale, divBy, dot, mul, normalize, direction
     , length, lengthSquared, distance, distanceSquared
     , mapX, mapY, map
+    , apply, lift2, lift3
     , toRecord, fromRecord
     , toFloat, round, floor, ceiling, truncate
     )
@@ -32,6 +33,7 @@ The set functions create a new copy of the vector, updating a single field.
 # Transform
 
 @docs mapX, mapY, map
+@docs apply, lift2, lift3
 
 
 # Conversions
@@ -218,6 +220,32 @@ mapY fn (Vec x y) =
 map : (a -> b) -> Vec a -> Vec b
 map fn (Vec x y) =
     Vec (fn x) (fn y)
+
+
+{-| -}
+apply : Vec (a -> b) -> Vec a -> Vec b
+apply (Vec fnx fny) (Vec x y) =
+    Vec (fnx x) (fny y)
+
+
+{-| Lift a binary function to vectors.
+
+    lift2 (+) (Vec 1 1) (Vec 2 2)
+    --> Vec 3 3 : Vec number
+
+Keep in mind that this comes at a cost of doing a step extra and if you need performance,
+you might be better off deconstructing and applying the function manually.
+
+-}
+lift2 : (a -> b -> c) -> Vec a -> Vec b -> Vec c
+lift2 fn (Vec x1 y1) (Vec x2 y2) =
+    Vec (fn x1 x2) (fn y1 y2)
+
+
+{-| -}
+lift3 : (a -> b -> c -> d) -> Vec a -> Vec b -> Vec c -> Vec d
+lift3 fn (Vec x1 y1) (Vec x2 y2) (Vec x3 y3) =
+    Vec (fn x1 x2 x3) (fn y1 y2 y3)
 
 
 
