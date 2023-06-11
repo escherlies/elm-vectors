@@ -7,6 +7,7 @@ module Math.Vector3 exposing
     , apply, lift2, lift3
     , toRecord, fromRecord
     , toFloat, round, floor, ceiling, truncate
+    , fromTuple
     )
 
 {-| A high performance linear algebra library using native Elm ADT.
@@ -106,10 +107,17 @@ toRecord (Vec x y z) =
     { x = x, y = y, z = z }
 
 
-{-| Convert a record to a vector.
+{-| Construct a vector from a record.
 -}
 fromRecord : { x : a, y : a, z : a } -> Vec a
 fromRecord { x, y, z } =
+    Vec x y z
+
+
+{-| Construct a vector from a tuple.
+-}
+fromTuple : ( a, a, a ) -> Vec a
+fromTuple ( x, y, z ) =
     Vec x y z
 
 

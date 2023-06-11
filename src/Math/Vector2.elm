@@ -5,7 +5,7 @@ module Math.Vector2 exposing
     , length, lengthSquared, distance, distanceSquared
     , mapX, mapY, map
     , apply, lift2, lift3
-    , toRecord, fromRecord
+    , toRecord, fromRecord, fromTuple
     , toFloat, round, floor, ceiling, truncate
     )
 
@@ -38,7 +38,7 @@ The set functions create a new copy of the vector, updating a single field.
 
 # Conversions
 
-@docs toRecord, fromRecord
+@docs toRecord, fromRecord, fromTuple
 @docs toFloat, round, floor, ceiling, truncate
 
 -}
@@ -92,10 +92,17 @@ toRecord (Vec x y) =
     { x = x, y = y }
 
 
-{-| Convert a record to a vector.
+{-| Construct a vector from a record.
 -}
 fromRecord : { x : a, y : a } -> Vec a
 fromRecord { x, y } =
+    Vec x y
+
+
+{-| Construct a vector from a tuple.
+-}
+fromTuple : ( a, a ) -> Vec a
+fromTuple ( x, y ) =
     Vec x y
 
 
