@@ -5,9 +5,8 @@ module Math.Vector3 exposing
     , length, lengthSquared, distance, distanceSquared
     , mapX, mapY, mapZ, map
     , apply, lift2, lift3
-    , toRecord, fromRecord
+    , toRecord, fromRecord, fromTuple
     , toFloat, round, floor, ceiling, truncate
-    , fromTuple
     )
 
 {-| A high performance linear algebra library using native Elm ADT.
@@ -39,7 +38,7 @@ The set functions create a new copy of the vector, updating a single field.
 
 # Conversions
 
-@docs toRecord, fromRecord
+@docs toRecord, fromRecord, fromTuple
 @docs toFloat, round, floor, ceiling, truncate
 
 -}
